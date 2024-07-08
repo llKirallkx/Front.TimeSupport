@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #edeef3;
+}
+
+header {
+    background-color: #484848;
+    justify-content: space-around;
+    display: flex;
+    padding: 0.5%;
+    color: whitesmoke;
+    border-radius: 0 0 10px 10px;
+    -webkit-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.55);
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.55);
+}
+
+.title-geradorCrc16 {
+    color: whitesmoke;
+    text-decoration: underline;
+}
+
+.title-GeradorAFD a {
+    color: whitesmoke;
+    transition: transform 1s;
+    transform: translateX(0) scale(0.5);
+    text-decoration: none;
+}
+
+.title-GeradorAFD a:hover, 
+.title-GeradorAFD a:focus {
+    text-decoration: underline;
+    color: rgb(204, 194, 194);
+    transform: translateX(10px) scale(1.2);
+    text-decoration: none;
+}
+
+.container {
+    padding: 1.6%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#response {
+    margin-top: 20px;
+    font-size: 16px;
+    color: green;
+}
+
+form {
+    color: whitesmoke;
+    background-color: #0f928c;
+    padding: 3%;
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 80%;
+    width: 100%;
+    -webkit-box-shadow: 5px 7px 14px 3px rgba(0, 0, 0, 0.52);
+    -moz-box-shadow: 5px 7px 14px 3px rgba(0, 0, 0, 0.52);
+    box-shadow: 5px 7px 14px 3px rgba(0, 0, 0, 0.52);
+}
+
+input{
+    width: 100%;
+}
+
+input::file-selector-button {
+    margin: 3% 3% 0 0;
+    background-color: #beee3b76;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button {
+    margin-top: 3%;
+    width: 100%;
+    background-color: #beee3ba7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #beee3b76;
+}

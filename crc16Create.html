@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styleCrc16.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="title-GeradorAFD"><a href="/index.html"><strong>Gerador de AFD</strong></a></h1>
+        <h1 class="title-geradorCrc16"><strong>Gerador de CRC16</strong></h1>
+    </header>
+
+
+    <div class="container">
+        <form id="uploadForm">
+            <h1>Upload de Arquivo</h1>
+            <input type="file" id="fileInput" name="file" accept=".txt" required><br>
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="response"></div>
+    </div>
+    <script src="scripts/scriptCrc16.js"></script>
+</body>
+</html>
