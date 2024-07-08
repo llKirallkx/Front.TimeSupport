@@ -31,7 +31,7 @@
             box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.55);
         }
 
-        .title-GeradorAFD{
+        .title-GeradorAFD {
             text-decoration: underline;
         }
 
@@ -41,7 +41,7 @@
             transform: translateX(0) scale(0.5);
         }
 
-        .title-geradorCrc16 a:hover, 
+        .title-geradorCrc16 a:hover,
         .title-geradorCrc16 a:focus {
             color: rgb(204, 194, 194);
             transform: translateX(10px) scale(1.2);
@@ -106,7 +106,13 @@
         span {
             color: rgb(224, 44, 13);
         }
-
+        
+        .divbuttons{
+            margin-top: 3%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
         button {
             background-color: #beee3ba7;
             color: #fff;
@@ -129,7 +135,7 @@
     </header>
 
     <div class="container">
-        <form id="afdForm" method="POST" action="https://afd-generator.onrender.com/download"
+        <form id="afdForm" method="POST" action="https://afd-generator.onrender.com/download671"
             onsubmit="submitForm(event)">
             <div class="form-row">
                 <div>
@@ -152,7 +158,7 @@
                     <label for="razaoSocial">Razão Social <span><strong>*</strong></span></label>
                     <input type="text" id="razaoSocial" name="razaoSocial" maxlength="150" required>
 
-                    <label for="content">CPF do funcionário <span><strong>*</strong> (Somente
+                    <label for="content">CPF ou PIS do funcionário <span><strong>*</strong> (Somente
                             números)</span></label>
                     <input type="text" id="content" name="content" maxlength="11" pattern="[0-9]*"
                         title="Somente números" required oninput="validateCnpjCpf(this)">
@@ -189,10 +195,14 @@
                 </div>
             </div>
 
-            <button type="submit" id="submitButton">Download</button>
-            <span id="loadingMessage" style="display: none;">Aguarde enquanto processamos o seu documento...</span>
+            <div class="divbuttons">
+                <button type="submit" id="submitButton">Download AFD Port. 671/21</button>
+                <button type="button" id="newDownloadButton">Download AFD Port. 1510</button>
+                <span id="loadingMessage" style="display: none;">Aguarde enquanto processamos o seu documento...</span>
+            </div>
         </form>
     </div>
+
 
     <script>
         function changeMask() {
@@ -217,28 +227,38 @@
             submitButton.style.display = "none";
             loadingMessage.style.display = "inline";
 
-            // Enviar o formulário
-            form.submit();
-
-            // Após 2 segundos, retorna o botão de envio
+            // Simula um tempo de espera antes de enviar o formulário
             setTimeout(function () {
-                submitButton.style.display = "inline";
-                loadingMessage.style.display = "none";
+                form.submit(); // Envie o formulário após o tempo de espera (simulado)
             }, 2000); // Tempo de espera em milissegundos (2 segundos neste caso, substitua conforme necessário)
         }
 
+        function newDownload(event) {
+            event.preventDefault();
 
-        function validateCnpjCpf(input) {
-            var value = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
-            input.value = value;
+            var form = document.getElementById("afdForm");
+            var originalAction = form.action;
+            var newButton = document.getElementById("newDownloadButton");
+            var loadingMessage = document.getElementById("loadingMessage");
 
-            // Verifica se o valor possui apenas números
-            if (!/^\d+$/.test(value)) {
-                input.setCustomValidity("Este campo deve conter apenas números.");
-            } else {
-                input.setCustomValidity(""); // Campo válido
-            }
+            // Muda a ação do formulário para o novo endpoint
+            form.action = "https://afd-generator.onrender.com/download1510";
+
+            // Oculta o botão e mostra a mensagem de carregamento
+            newButton.style.display = "none";
+            loadingMessage.style.display = "inline";
+
+            // Simula um tempo de espera antes de enviar o formulário
+            setTimeout(function () {
+                form.submit();
+                form.action = originalAction; // Restaura a ação original do formulário
+                newButton.style.display = "inline"; // Mostra o botão novamente
+                loadingMessage.style.display = "none"; // Oculta a mensagem de carregamento
+            }, 2000);
         }
+
+        document.getElementById("newDownloadButton").addEventListener("click", newDownload);
+
 
         // Executa a função ao carregar a página para definir a máscara inicial
         window.onload = changeMask;
