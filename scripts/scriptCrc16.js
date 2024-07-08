@@ -8,7 +8,7 @@ document.getElementById('uploadForm').addEventListener('submit', function(event)
         const formData = new FormData();
         formData.append('file', file);
 
-        fetch('http://localhost:10000/upload', {
+        fetch('https://afd-generator.onrender.com/upload', {
             method: 'POST',
             body: formData
         })
