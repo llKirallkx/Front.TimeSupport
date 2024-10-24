@@ -14,11 +14,11 @@ function DivButtons() {
             >Download AFD Port. 1510
             </button>
             
-            <span
+            {/* <span
                 id="loadingMessage"
                 style="display: none;"
             >Aguarde enquanto processamos o seu documento...
-            </span>
+            </span> */}
         </div>
     )
 }
