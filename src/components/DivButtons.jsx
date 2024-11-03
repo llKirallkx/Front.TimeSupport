@@ -1,18 +1,40 @@
+import { useEffect, useState } from "react";
+import LoadingButton from "./LoadingButton";
+import DownloadButtons from "./DownloadButtons";
+
 function DivButtons() {
+
+    const [loading, setLoading] = useState(false)
+
+    // Adicionar onclick nos botões
+    // function submitForm(event){
+    //     event.preventDefault();
+
+    //     const form = document.getElementById("afdForm");
+    //     console.log("Form subtmit")
+    //     // form.submit();
+    // }
+
+    
+
+    // function handleClick(event){
+    //     setLoading(true)
+    //     submitForm(event);
+
+
+    //     setTimeout(() => {
+    //         setLoading(false);
+    //     }, 5000);
+    // }
 
     return (
         <div className="divbuttons">
-            <button 
-                type="submit"
-                id="submitButton"
-            >Download AFD Port. 671/21
-            </button>
+            {loading? 
+            <LoadingButton />
+            :
+            <DownloadButtons />
+            }
             
-            <button 
-                type="button"
-                id="newDownloadButton"
-            >Download AFD Port. 1510
-            </button>
             
             {/* <span
                 id="loadingMessage"

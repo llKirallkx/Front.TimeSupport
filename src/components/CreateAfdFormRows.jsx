@@ -1,12 +1,38 @@
+import { useState } from 'react';
+import InputMask from 'react-input-mask';
+
 function CreateAfdFormRows(){
+    
+    const inputTypes = {
+        cnpj: "99.999.999/9999-99",
+        cpf: "999.999.999-99"
+    };
+
+    const [valueInput, setValue] = useState(inputTypes.cnpj);
+    
+    function handleSelect(event) {
+        let value = event.target.value;
+
+        if(value === "2"){
+            value = inputTypes.cpf
+        }else if (value === "1"){
+            value = inputTypes.cnpj
+        }
+
+        setValue(value);
+    }
+    
     return(
         <div className="formrows">
             <div>
                 <label htmlFor="tipoDeIdentificador">Tipo de Empregador</label>
-                {/* Todo, incluir mascara e onchange na mascara no caso de troca entre valores de CNPJ ou CPF */}
-                <select id="tipoDeIdentificador" name="tipoDeIdentificador"> 
-                    <option value="1">CNPJ</option>
-                    <option value="2">CPF</option>
+                <select 
+                    id="tipoDeIdentificador"
+                    name="tipoDeIdentificador"
+                    onChange={handleSelect}
+                > 
+                    <option value="1" name="cnpj">CNPJ</option>
+                    <option value="2" name="cpf">CPF</option>
                 </select>
             </div>
             <div>
@@ -18,20 +44,29 @@ function CreateAfdFormRows(){
                     números
                     </span>
                 </label>    <br />
-                    {/* TODO - incluir onInput para validação do CNPJ ou CPF */}
-                <input type="text" id="cnpjOuCpf" name="cnpjOuCpf" maxLength="14" pattern="[0-9]*"
-                    title="Somente números" required/>
+                <InputMask
+                    className='inputsClass'
+                    mask={valueInput}
+                    maskChar=" "
+                    id='cnpjOuCpf'
+                    name='cnpjOuCpf'
+                    required
+                />
             </div>
             <div className="form-row">
                 <div>
                     <label htmlFor="razaoSocial">Razão Social <span><strong>*</strong></span></label>
-                    <input type="text" id="razaoSocial" name="razaoSocial" maxLength="150" required/>
+                    <input className='inputsClass' type="text" id="razaoSocial" name="razaoSocial" maxLength="150" required/>
 
                     <label htmlFor="content">CPF ou PIS do funcionário <span><strong>*</strong> (Somente
                             números)</span></label>
-                    {/* TODO - incluir onInput para validação do CNPJ ou CPF */}
-                    <input type="text" id="content" name="content" maxLength="11" pattern="[0-9]*"
-                        title="Somente números" required/>
+                    <InputMask
+                        className='inputsClass'
+                        mask={valueInput}
+                        maskChar=" "
+                        id='content'
+                        name='content'
+                    />
                 </div>
             </div>
 
