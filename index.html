@@ -12,57 +12,6 @@
 <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-
-<!-- Todo, atualizar script para os metodos do react -->
-    <!-- <script>
-
-        function submitForm(event) {
-            event.preventDefault(); // Evita o envio padrão do formulário
-
-            var form = document.getElementById("afdForm");
-            var submitButton = document.getElementById("submitButton");
-            var loadingMessage = document.getElementById("loadingMessage");
-
-            // Oculta o botão e mostra a mensagem de carregamento
-            submitButton.style.display = "none";
-            loadingMessage.style.display = "inline";
-
-            // Simula um tempo de espera antes de enviar o formulário
-            setTimeout(function () {
-                form.submit(); // Envie o formulário após o tempo de espera (simulado)
-            }, 2000); // Tempo de espera em milissegundos (2 segundos neste caso, substitua conforme necessário)
-        }
-
-        function newDownload(event) {
-            event.preventDefault();
-
-            var form = document.getElementById("afdForm");
-            var originalAction = form.action;
-            var newButton = document.getElementById("newDownloadButton");
-            var loadingMessage = document.getElementById("loadingMessage");
-
-            // Muda a ação do formulário para o novo endpoint
-            form.action = "https://afd-generator.onrender.com/download1510";
-
-            // Oculta o botão e mostra a mensagem de carregamento
-            newButton.style.display = "none";
-            loadingMessage.style.display = "inline";
-
-            // Simula um tempo de espera antes de enviar o formulário
-            setTimeout(function () {
-                form.submit();
-                form.action = originalAction; // Restaura a ação original do formulário
-                newButton.style.display = "inline"; // Mostra o botão novamente
-                loadingMessage.style.display = "none"; // Oculta a mensagem de carregamento
-            }, 2000);
-        }
-
-        document.getElementById("newDownloadButton").addEventListener("click", newDownload);
-
-
-        // Executa a função ao carregar a página para definir a máscara inicial
-        window.onload = changeMask;
-    </script> -->
 </body>
 
 </html>

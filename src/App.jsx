@@ -9,8 +9,7 @@ function App() {
     <>
       <HeaderComponent />
       <div className="container">
-        {/* Incluir um onSubmit no formulário */}
-        <form id="afdForm" method="POST" action="https://afd-generator.onrender.com/download671">
+        <form id="afdForm" method="POST" action="">
 
           <CreateAfdFormRows />
           <DivButtons />

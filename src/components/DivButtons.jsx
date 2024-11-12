@@ -1,46 +1,63 @@
-import { useEffect, useState } from "react";
-import LoadingButton from "./LoadingButton";
-import DownloadButtons from "./DownloadButtons";
+import { useState } from "react";
+import formSubmit from "../services/FormSubmit";
 
 function DivButtons() {
 
     const [loading, setLoading] = useState(false)
 
-    // Adicionar onclick nos botões
-    // function submitForm(event){
-    //     event.preventDefault();
+    function defaultDownloadFunction(event){
+        const form = document.getElementById("afdForm");
+        form.action = "https://afd-generator.onrender.com/download671";
 
-    //     const form = document.getElementById("afdForm");
-    //     console.log("Form subtmit")
-    //     // form.submit();
-    // }
-
+        handleClick(event);
+    }
     
+    function newDownloadFunction(event){
+        const form = document.getElementById("afdForm");
+        form.action = "https://afd-generator.onrender.com/download1510";
 
-    // function handleClick(event){
-    //     setLoading(true)
-    //     submitForm(event);
+        handleClick(event);
+    }
+
+    function handleClick(event){
+        setLoading(true)
+        formSubmit(event);
 
 
-    //     setTimeout(() => {
-    //         setLoading(false);
-    //     }, 5000);
-    // }
+        setTimeout(() => {
+            setLoading(false);
+        }, 5000);
+    }
 
     return (
         <div className="divbuttons">
-            {loading? 
-            <LoadingButton />
-            :
-            <DownloadButtons />
-            }
+            <button
+                type="button"
+                id="submitButton"
+                onClick={defaultDownloadFunction}
+                style={{display: loading? 'none' : 'block'}}
+            >Download AFD Port. 671/21
+            </button>
+
+            <button
+                type="button"
+                id="newDownloadButton"
+                onClick={newDownloadFunction}
+                style={{display: loading? 'none' : 'block'}}
+            >Download AFD Port. 1510
+            </button>
             
-            
-            {/* <span
-                id="loadingMessage"
-                style="display: none;"
-            >Aguarde enquanto processamos o seu documento...
-            </span> */}
+            <button
+                type="button"
+                id="loading"
+                disabled
+                style={{
+                    display: loading? 'block' : 'none',
+                    cursor: 'no-drop',
+                    width: '100%'
+                }}
+            >Aguarde o download
+        </button>
         </div>
     )
 }
