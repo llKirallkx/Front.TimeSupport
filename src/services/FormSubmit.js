@@ -1,8 +1,8 @@
 function formSubmit(event){
     event.preventDefault();
 
-    const form = document.getElementById("afdForm");
-    console.log("Form subtmit ",  form.action)
+    const form = document.getElementsByTagName("form");
+    console.log("Form submit ",  form.action)
     // form.submit();
 }
 

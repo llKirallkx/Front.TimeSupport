@@ -1,6 +1,5 @@
 # Projeto-Integrador-Front
 
 
-## todos
+## TO DO's
     > Atualização do CSS para bootstrap
-    > implementação total da Página crc16
