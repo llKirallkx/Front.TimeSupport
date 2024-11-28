@@ -7,9 +7,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "clean": "rimraf dist",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "npm run clean && npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "gh-pages": "^6.2.0",
