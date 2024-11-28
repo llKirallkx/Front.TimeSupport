@@ -1,7 +1,7 @@
 {
   "homepage": "https://llkirallkx.github.io/Projeto-Integrador-Front/",
   "name": "projeto-integrador",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,8 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "gh-pages": "^6.2.0",
