@@ -39,12 +39,13 @@ function DivButtons() {
     }
 
     return (
-        <div className="divbuttons">
+        <div className="row mb-3 mt-4 justify-content-betweend-flex justify-content-between">
             <button
                 type="button"
                 id="submitButton"
                 onClick={defaultDownloadFunction}
                 style={{display: loading? 'none' : 'block'}}
+                className="btn btn-secondary col-md-5 p-2"
             >Download AFD Port. 671/21
             </button>
 
@@ -53,6 +54,7 @@ function DivButtons() {
                 id="newDownloadButton"
                 onClick={newDownloadFunction}
                 style={{display: loading? 'none' : 'block'}}
+                className="btn btn-secondary col-md-5"
             >Download AFD Port. 1510
             </button>
             
@@ -65,6 +67,7 @@ function DivButtons() {
                     cursor: 'no-drop',
                     width: '100%'
                 }}
+                className="btn btn-secondary col-md-2"
             >Aguarde o download
         </button>
         </div>

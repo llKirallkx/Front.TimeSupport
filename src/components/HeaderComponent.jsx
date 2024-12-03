@@ -1,24 +1,25 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function HeaderComponent() {
     return (
-        <header>
-            <h1 className="title-GeradorAFD">
-                <Link to="/">
-                    <strong>
-                        Gerador de AFD
-                    </strong>
-                </Link>
-            </h1>
+        <header className="nav nav-pills nav-fill">
 
-            <h1 className="title-geradorCrc16">
-                <Link to="/crc16create">
-                    <strong>
-                        Gerador de CRC16
-                    </strong>
-                </Link>
-            </h1>
+            <NavLink
+                className={({isActive}) => {
+                    return isActive ? "nav-link active bg-secondary" : "nav-link"
+                }}
+                to="/">
+                    Gerador de AFD
+            </NavLink>
+
+            <NavLink className={({isActive}) => {
+                    return isActive ? "nav-link active bg-secondary" : "nav-link"
+                }}
+                to="/crc16create">                
+                   Gerador de CRC 16
+            </NavLink>
         </header>
+
     );
 }
 

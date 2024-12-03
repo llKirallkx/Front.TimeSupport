@@ -57,14 +57,14 @@ function Crc16Create() {
     return (
         <>
             <HeaderComponent />
-            <div className="container">
+            <div className="container p-4 my-4 bg-dark-subtle rounded shadow">
                 {loading ? (
                     <div id="response">Download iniciado</div>
                 ) : (
                     <form id="uploadForm">
                         <h1>Upload de Arquivo</h1>
-                        <input type="file" ref={fileInputRef} name="file" accept=".txt" required /><br/>
-                        <button type="submit" onClick={handleClick}>Enviar</button>
+                        <input className="form-label" type="file" ref={fileInputRef} name="file" accept=".txt" required /><br/>
+                        <button className="btn btn-secondary" type="submit" onClick={handleClick}>Enviar</button>
                     </form>
                 )}
             </div>

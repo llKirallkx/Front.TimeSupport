@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <HeaderComponent />
-      <div className="container">
+      <div className='container p-4 my-4 bg-dark-subtle rounded shadow'>
         <form id="afdForm" method="POST" action="">
 
           <CreateAfdFormRows />
