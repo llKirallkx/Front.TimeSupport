@@ -9,7 +9,7 @@ function HeaderComponent() {
     useEffect(() => {
         const checkServerStatus = async () => {
             try {
-                const response = await fetch("http://localhost:10000/status");
+                const response = await fetch("https://afd-generator.onrender.com/status");
 
                 if (!response.ok) {
                     throw new Error("Falha ao obter o status do servidor");
