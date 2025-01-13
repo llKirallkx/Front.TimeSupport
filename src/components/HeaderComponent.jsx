@@ -45,17 +45,24 @@ function HeaderComponent() {
 
             <NavLink
                 className={({ isActive }) => {
-                    return isActive ? "nav-link active bg-secondary" : "nav-link"
+                    return isActive ? "nav-link active bg-secondary" : "nav-link border border-3"
                 }}
                 to="/">
                 Gerador de AFD
             </NavLink>
 
             <NavLink className={({ isActive }) => {
-                return isActive ? "nav-link active bg-secondary" : "nav-link"
+                return isActive ? "nav-link active bg-secondary" : "nav-link border border-3"
             }}
                 to="/crc16create">
                 Gerador de CRC 16
+            </NavLink>
+
+            <NavLink className={({ isActive }) => {
+                return isActive ? "nav-link active bg-secondary" : "nav-link border border-3"
+            }}
+                to="/afdcheck">
+                AFD Check
             </NavLink>
 
             <button type="button" className={buttonClass}>
