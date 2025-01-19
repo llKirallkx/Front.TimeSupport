@@ -4,9 +4,9 @@ import DataCheck from './components/DataCheck.jsx'
 
 const AfdCheck = () => {
 
-
     const [loading, setLoading] = useState(false)
     const [datasRecieve, setRecieve] = useState(false)
+    const [responseData, setResponseData] = useState(null);
     const fileInputRef = useRef(null);
 
     function handleClick(event){
@@ -19,22 +19,26 @@ const AfdCheck = () => {
         const file = fileInputRef.current.files[0];
 
         if (file) {
-            console.log("iniciando download")
             const formData = new FormData();
             formData.append('file', file);
     
-            fetch('https://afd-generator.onrender.com/afdCheck', {
+            fetch('http://localhost:10000/afdCheck', {
+            // fetch('https://afd-generator.onrender.com/afdCheck', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => console.log(response))
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setResponseData(data);
+                setRecieve(true);
+            })
             .catch(error => {
                 console.error('Erro ao enviar o arquivo:', error);
                 document.getElementById('response').textContent = 'Erro ao enviar o arquivo. Tente novamente.';
             })
             .finally(() => {
                 setLoading(false);
-                setRecieve(true);
             });
             
         } else {
@@ -49,11 +53,11 @@ const AfdCheck = () => {
             <HeaderComponent />
             <div className="container p-4 my-4 bg-dark-subtle rounded shadow">
             {loading ? (
-                    <div id="response">Download iniciado</div>
-                ) : datasRecieve? <DataCheck />  : (
+                    <div id="response">Avaliando Arquivo...</div>
+                ) : datasRecieve? <DataCheck data={responseData} />  : (
                     <form id="uploadForm">
                         <h1>Upload de Arquivo</h1>
-                        <p3>Faça o Upload do arquivo que deseja conferir inconsistências</p3><br/><br/>
+                        <p>Faça o Upload do arquivo que deseja conferir inconsistências</p><br/><br/>
                         <input
                          className="form-label"
                          type="file"
