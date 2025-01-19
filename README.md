@@ -1,4 +1,4 @@
-# AFD Generator Documentation
+# TimeSupport - FrontEnd
 
 ## Project Overview
 This project is a web application to generate and validate AFD (Data Source File) files. It provides functionalities to create, download, and check AFD files for inconsistencies.
